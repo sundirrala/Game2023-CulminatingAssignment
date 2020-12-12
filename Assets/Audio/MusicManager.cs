@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
@@ -27,6 +28,15 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField]
     AudioClip[] trackList;
+
+    [SerializeField]
+    AudioMixer musicMixer;
+
+    [SerializeField]
+    float volumeMin_dB = -80.0f;
+
+    [SerializeField]
+    float volumeMax_dB = 0.0f;
 
     public enum Track
     {
@@ -89,5 +99,11 @@ public class MusicManager : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public void SetMusicVolume(float volumeNormalized)
+    {
+        //musicMixer.SetFloat("MusicVolume", Mathf.Lerp(volumeMin_dB, volumeMax_dB, volumeNormalized));
+        musicMixer.SetFloat("MusicVolume", volumeNormalized);
     }
 }
