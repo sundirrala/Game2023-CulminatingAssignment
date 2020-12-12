@@ -10,6 +10,16 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene("Overworld");
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void Exit()
     {
         Application.Quit();
