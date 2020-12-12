@@ -8,7 +8,7 @@ public class GameSaver : MonoBehaviour
     public static UnityEvent OnSave = new UnityEvent();
     public static UnityEvent OnLoad = new UnityEvent();
 
-    void Save()
+    public void Save()
     {
         OnSave.Invoke();
 
@@ -19,7 +19,7 @@ public class GameSaver : MonoBehaviour
 
         Debug.Log("Saved! " + SpawnPoint.player.transform.position.x);
     }
-    void Load()
+    public void Load()
     {
         OnLoad.Invoke();
 
