@@ -64,7 +64,6 @@ public class Inventory : MonoBehaviour, ISaveHandler
         Assert.AreEqual(
             Object.FindObjectsOfTypeAll(typeof(GameObject)).Where(
                 gameObArg => gameObArg.name == gameObject.name
-                && !EditorUtility.IsPersistent(gameObArg)
                 && ((GameObject)gameObArg).activeInHierarchy
                 ).Count(),
             1,
