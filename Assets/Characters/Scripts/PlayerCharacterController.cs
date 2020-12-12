@@ -13,8 +13,11 @@ public class PlayerCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 movementVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        movementVector *= speed;
-        rigidBody.velocity = movementVector;
+        if (CharacterWalkAnimController.canMove)
+        {
+            Vector2 movementVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            movementVector *= speed;
+            rigidBody.velocity = movementVector;
+        }
     }
 }
