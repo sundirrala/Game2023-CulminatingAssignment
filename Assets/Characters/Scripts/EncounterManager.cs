@@ -14,6 +14,8 @@ public class EncounterManager : MonoBehaviour
 
     public void EnterEncounter()
     {
+        CharacterWalkAnimController.canMove = false;
+        Debug.Log(CharacterWalkAnimController.canMove);
         StartCoroutine(DelayBattle());
     }
 
@@ -31,5 +33,7 @@ public class EncounterManager : MonoBehaviour
         transform.root.gameObject.SetActive(true);
         // In a full game, your code should remember the player's last area and return there
         SceneManager.LoadScene("Overworld");
+        
+        CharacterWalkAnimController.canMove = true;
     }
 }
