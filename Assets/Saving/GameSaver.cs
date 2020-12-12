@@ -11,13 +11,19 @@ public class GameSaver : MonoBehaviour
     void Save()
     {
         OnSave.Invoke();
+
+        PlayerPrefs.SetFloat("xLoc", SpawnPoint.player.transform.position.x);
+        PlayerPrefs.SetFloat("yLoc", SpawnPoint.player.transform.position.y);
+
         PlayerPrefs.Save();
 
-        Debug.Log("Saved!");
+        Debug.Log("Saved! " + SpawnPoint.player.transform.position.x);
     }
     void Load()
     {
         OnLoad.Invoke();
+
+        SpawnPoint.player.transform.position = new Vector3(PlayerPrefs.GetFloat("xLoc"), PlayerPrefs.GetFloat("yLoc"), SpawnPoint.player.transform.position.z);
 
         Debug.Log("Loaded!");
     }
